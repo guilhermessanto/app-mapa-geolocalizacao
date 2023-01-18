@@ -1,24 +1,30 @@
-import { StyleSheet, Text, View, StatusBar, Image } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet, Text, View, StatusBar } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 
 export default function App() {
   const regiaoInicial = {
     latitude: 37.401437,
     longitude: -116.86773,
-    latitudeDelta: 0.0922,
-    /*  longitudeDelta: 0.0421, */
+
     latitudeDelta: 0.0222,
     longitudeDelta: 0.00121,
   };
-  const localizacao = {
+  const { localizacao, setLocalizacao } = useState();
+
+  const newLocalizacao = {
     latitude: 37.401437,
     longitude: -116.86773,
-    latitudeDelta: 0.0922,
-    /*  longitudeDelta: 0.0421, */
+
     latitudeDelta: 0.0222,
     longitudeDelta: 0.00121,
   };
 
+  const novaLocalizacao = ()=>{
+
+  }
+
+  }
   return (
     <>
       <StatusBar />
@@ -28,17 +34,14 @@ export default function App() {
           initialRegion={regiaoInicial}
           liteMode={false}
           mapType="satellite"
+          
         >
           <Marker
-            coordinate={localizacao}
+            coordinate={newLocalizacao}
             title="Titulo"
             draggable
-            onPress={(event) => {
-              console.log(event.nativeEvent);
-            }}
-          >
-            {/* <Image source={require("./assets/pointing.png")} /> */}
-          </Marker>
+            onPress={novaLocalizacao}
+          />
         </MapView>
       </View>
     </>
