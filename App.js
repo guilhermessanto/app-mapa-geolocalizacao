@@ -10,17 +10,24 @@ export default function App() {
     latitudeDelta: 0.0222,
     longitudeDelta: 0.00121,
   };
-  const { localizacao, setLocalizacao } = useState();
-
-  const newLocalizacao = {
+  const [localizacao, setLocalizacao] = useState({
     latitude: 37.401437,
     longitude: -116.86773,
-
     latitudeDelta: 0.0222,
     longitudeDelta: 0.00121,
+  });
+  const novaLocalizacao = (event) => {
+    let coordenadas = {
+      latitude: event.nativeEvent.coordinate.latitude,
+      longitude: event.nativeEvent.coordinate.longitude,
+    };
+    setLocalizacao({
+      ...coordenadas,
+      latitudeDelta: 0.0222,
+      longitudeDelta: 0.00121,
+    });
+    console.log(localizacao);
   };
-
-  const novaLocalizacao = () => {};
 
   return (
     <>
@@ -31,12 +38,13 @@ export default function App() {
           initialRegion={regiaoInicial}
           liteMode={false}
           mapType="satellite"
+          onPress={novaLocalizacao}
         >
           <Marker
-            coordinate={newLocalizacao}
+            coordinate={localizacao}
             title="Titulo"
             draggable
-            onPress={novaLocalizacao}
+            onPress={localizacao}
           />
         </MapView>
       </View>
