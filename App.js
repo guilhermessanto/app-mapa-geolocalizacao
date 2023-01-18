@@ -20,11 +20,8 @@ export default function App() {
     longitudeDelta: 0.00121,
   };
 
-  const novaLocalizacao = ()=>{
+  const novaLocalizacao = () => {};
 
-  }
-
-  }
   return (
     <>
       <StatusBar />
@@ -34,7 +31,6 @@ export default function App() {
           initialRegion={regiaoInicial}
           liteMode={false}
           mapType="satellite"
-          
         >
           <Marker
             coordinate={newLocalizacao}
