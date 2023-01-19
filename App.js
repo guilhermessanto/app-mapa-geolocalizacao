@@ -40,12 +40,7 @@ export default function App() {
           mapType="satellite"
           onPress={novaLocalizacao}
         >
-          <Marker
-            coordinate={localizacao}
-            title="Titulo"
-            draggable
-            onPress={localizacao}
-          />
+          <Marker coordinate={localizacao} title="Titulo" draggable />
         </MapView>
       </View>
     </>
