@@ -41,8 +41,8 @@ export default function App() {
     setLocalizacao({
       latitude: minhaLocalizacao.coords.latitude,
       longitude: minhaLocalizacao.coords.longitude,
-      latitudeDelta: 0.0222,
-      longitudeDelta: 0.00121,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
     });
     console.log(localizacao);
   };
@@ -63,7 +63,6 @@ export default function App() {
             // initialRegion={regiaoInicial}
             region={localizacao ?? regiaoInicial}
             liteMode={false}
-            mapType="satellite"
           >
             {localizacao && (
               <Marker coordinate={localizacao} title="Titulo" draggable />
